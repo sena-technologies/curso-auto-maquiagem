@@ -1,0 +1,97 @@
+/* Critical CSS - Above the fold styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header - Critical */
+header {
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Hero - Critical */
+.hero {
+  background: linear-gradient(135deg, #ff6b9d, #c44569, #ffd700);
+  color: white;
+  padding: 120px 0 80px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #333;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: #f8f9fa;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: ">";
+  margin: 0 0.5rem;
+  color: #666;
+}
+
+.breadcrumb a {
+  color: #ff6b9d;
+  text-decoration: none;
+}

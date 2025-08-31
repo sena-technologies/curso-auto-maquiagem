@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://beautymaster.com.br/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+
+# Allow important resources
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Crawl delay
+Crawl-delay: 1

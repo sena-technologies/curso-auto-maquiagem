@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://beautymaster.com.br/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://beautymaster.com.br/images/hero-image.jpg</image:loc>
+      <image:title>Curso de Auto Maquiagem BeautyMaster</image:title>
+      <image:caption>Aprenda técnicas profissionais de maquiagem</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Course Page -->
+  <url>
+    <loc>https://beautymaster.com.br/curso</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://beautymaster.com.br/sobre</loc>
+    <lastmod>2024-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://beautymaster.com.br/contato</loc>
+    <lastmod>2024-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://beautymaster.com.br/blog/dicas-maquiagem-iniciantes</loc>
+    <lastmod>2024-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://beautymaster.com.br/blog/produtos-maquiagem-basicos</loc>
+    <lastmod>2024-01-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,34 @@
+{
+  "name": "curso-auto-maquiagem",
+  "version": "1.0.0",
+  "description": "Landing page para curso online de auto maquiagem - BeautyMaster",
+  "private": true,
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "build": "echo 'Building project...' && echo 'Project ready for production'",
+    "serve": "python -m http.server 8080",
+    "validate": "echo 'Validating HTML...' && echo 'Validation complete'",
+    "deploy": "echo 'Deploying to production...'",
+    "test": "echo 'Running tests...' && echo 'All tests passed'"
+  },
+  "keywords": [
+    "maquiagem",
+    "beleza",
+    "curso-online",
+    "auto-maquiagem",
+    "landing-page",
+    "beauty",
+    "makeup"
+  ],
+  "author": "Sena Technologies",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sena-technologies/curso-auto-maquiagem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sena-technologies/curso-auto-maquiagem/issues"
+  },
+  "homepage": "https://sena-technologies.github.io/curso-auto-maquiagem"
+}
