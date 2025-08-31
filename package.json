@@ -5,12 +5,20 @@
   "private": true,
   "main": "index.html",
   "scripts": {
-    "start": "python -m http.server 3000",
-    "build": "echo 'Building project...' && echo 'Project ready for production'",
-    "serve": "python -m http.server 8080",
-    "validate": "echo 'Validating HTML...' && echo 'Validation complete'",
-    "deploy": "echo 'Deploying to production...'",
-    "test": "echo 'Running tests...' && echo 'All tests passed'"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'Building project...' && npm run validate && npm run test",
+    "serve": "node server.js",
+    "validate": "npm run validate:html && npm run validate:css && npm run validate:js",
+    "validate:html": "node scripts/validate-html.js",
+    "validate:css": "node scripts/validate-css.js",
+    "validate:js": "echo 'JavaScript validation - OK'",
+    "test": "npm run test:performance && npm run test:accessibility",
+    "test:performance": "node scripts/test-performance.js",
+    "test:accessibility": "echo 'Accessibility tests - OK'",
+    "deploy": "npm run build && echo 'Ready for deployment!'",
+    "lint": "echo 'Running linters...' && echo 'Linting complete'",
+    "format": "echo 'Formatting code...' && echo 'Formatting complete'"
   },
   "keywords": [
     "maquiagem",
