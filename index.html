@@ -1682,7 +1682,57 @@ img[loading="lazy"] {
         <i class="fab fa-whatsapp"></i>
     </a>
     
+    <!-- Performance Script -->
+    <script src="assets/js/performance.js"></script>
+    
     <!-- Main JavaScript -->
     <script src="assets/js/main.js" defer></script>
+    
+    <!-- SEO Analytics -->
+    <script src="seo-analytics.js"></script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+        // Web Vitals tracking
+        function sendToAnalytics(metric) {
+            if (window.gtag) {
+                gtag('event', metric.name, {
+                    value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+                    event_category: 'Web Vitals',
+                    event_label: metric.id,
+                    non_interaction: true,
+                });
+            }
+            
+            console.log('Web Vital:', metric.name, metric.value);
+        }
+
+        // Lazy load Web Vitals library
+        if ('IntersectionObserver' in window) {
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js';
+            script.onload = function() {
+                webVitals.getCLS(sendToAnalytics);
+                webVitals.getFID(sendToAnalytics);
+                webVitals.getFCP(sendToAnalytics);
+                webVitals.getLCP(sendToAnalytics);
+                webVitals.getTTFB(sendToAnalytics);
+            };
+            document.head.appendChild(script);
+        }
+        
+        // Performance budget monitoring
+        window.addEventListener('load', () => {
+            if ('performance' in window) {
+                const perfData = performance.getEntriesByType('navigation')[0];
+                const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+                
+                // Alertar se performance estiver ruim
+                if (loadTime > 3000) {
+                    console.warn('⚠️ Performance Alert: Load time exceeds 3s:', loadTime + 'ms');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
