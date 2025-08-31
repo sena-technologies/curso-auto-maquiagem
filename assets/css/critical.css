@@ -1,4 +1,37 @@
 /* Critical CSS - Above the fold styles */
+
+/* ===== CSS VARIABLES - NOVA PALETA DE CORES ===== */
+:root {
+  /* Paleta principal */
+  --color-cream: #d5c4a1;        /* Bege claro/creme */
+  --color-rose-copper: #c88f7a;  /* Rosa acobreado */
+  --color-earth-brown: #a65e39;  /* Marrom terroso */
+  --color-dark-brown: #8b4a2e;   /* Marrom escuro */
+  --color-deep-brown: #4e2c21;   /* Marrom muito escuro */
+  
+  /* Cores derivadas para gradientes */
+  --color-primary: var(--color-rose-copper);
+  --color-secondary: var(--color-earth-brown);
+  --color-accent: var(--color-cream);
+  --color-dark: var(--color-deep-brown);
+  --color-medium: var(--color-dark-brown);
+  
+  /* Tons neutros */
+  --color-text-primary: var(--color-deep-brown);
+  --color-text-secondary: var(--color-dark-brown);
+  --color-text-light: var(--color-cream);
+  
+  /* Backgrounds */
+  --bg-gradient-primary: linear-gradient(135deg, var(--color-rose-copper), var(--color-earth-brown));
+  --bg-gradient-secondary: linear-gradient(135deg, var(--color-cream), var(--color-rose-copper));
+  --bg-gradient-accent: linear-gradient(45deg, var(--color-earth-brown), var(--color-dark-brown));
+  
+  /* Shadows */
+  --shadow-light: 0 4px 15px rgba(78, 44, 33, 0.1);
+  --shadow-medium: 0 8px 25px rgba(78, 44, 33, 0.15);
+  --shadow-heavy: 0 15px 35px rgba(78, 44, 33, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +46,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--color-text-primary);
   background: #ffffff;
 }
 
@@ -25,14 +58,14 @@ body {
 
 /* Header - Critical */
 header {
-  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 50%, #c44569 100%);
-  color: white;
+  background: var(--bg-gradient-primary);
+  color: var(--color-text-light);
   padding: 1rem 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
+  box-shadow: var(--shadow-medium);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
@@ -47,7 +80,7 @@ nav {
   font-size: 1.8rem;
   font-weight: 700;
   text-decoration: none;
-  color: white;
+  color: var(--color-text-light);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -68,7 +101,7 @@ nav {
 }
 
 .nav-menu a {
-  color: white;
+  color: var(--color-text-light);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
@@ -79,7 +112,7 @@ nav {
 }
 
 .nav-menu a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(213, 196, 161, 0.2);
   transform: translateY(-2px);
 }
 
@@ -88,7 +121,7 @@ nav {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--color-text-light);
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
@@ -96,8 +129,8 @@ nav {
 
 /* Hero - Critical */
 .hero {
-  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 25%, #ffb3c1 50%, #ffd1d9 75%, #ffffff 100%);
-  color: #2c2c2c;
+  background: var(--bg-gradient-primary);
+  color: var(--color-text-light);
   padding: 140px 0 100px;
   text-align: center;
   min-height: 100vh;
@@ -155,26 +188,27 @@ nav {
 .hero .subtitle {
   font-size: clamp(1.1rem, 3vw, 1.4rem);
   margin-bottom: 2.5rem;
-  color: #666;
+  color: var(--color-text-light);
   font-weight: 400;
   line-height: 1.6;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0.9;
 }
 
 /* CTA Button - Critical */
 .cta-button {
   display: inline-block;
-  background: linear-gradient(45deg, #ff6b9d, #c44569);
-  color: white;
+  background: var(--bg-gradient-accent);
+  color: var(--color-text-light);
   padding: 1.2rem 3rem;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+  box-shadow: var(--shadow-medium);
   text-transform: uppercase;
   letter-spacing: 1px;
   border: none;
@@ -249,7 +283,6 @@ nav {
     padding: 1rem 2rem;
     font-size: 1rem;
   }
-}
 }
 
 .hero h1 {

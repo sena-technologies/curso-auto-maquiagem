@@ -1,4 +1,38 @@
 /* ===== RESET & BASE STYLES ===== */
+
+/* ===== CSS VARIABLES - NOVA PALETA DE CORES ===== */
+:root {
+  /* Paleta principal */
+  --color-cream: #d5c4a1;        /* Bege claro/creme */
+  --color-rose-copper: #c88f7a;  /* Rosa acobreado */
+  --color-earth-brown: #a65e39;  /* Marrom terroso */
+  --color-dark-brown: #8b4a2e;   /* Marrom escuro */
+  --color-deep-brown: #4e2c21;   /* Marrom muito escuro */
+  
+  /* Cores derivadas para gradientes */
+  --color-primary: var(--color-rose-copper);
+  --color-secondary: var(--color-earth-brown);
+  --color-accent: var(--color-cream);
+  --color-dark: var(--color-deep-brown);
+  --color-medium: var(--color-dark-brown);
+  
+  /* Tons neutros */
+  --color-text-primary: var(--color-deep-brown);
+  --color-text-secondary: var(--color-dark-brown);
+  --color-text-light: var(--color-cream);
+  
+  /* Backgrounds */
+  --bg-gradient-primary: linear-gradient(135deg, var(--color-rose-copper), var(--color-earth-brown));
+  --bg-gradient-secondary: linear-gradient(135deg, var(--color-cream), var(--color-rose-copper));
+  --bg-gradient-accent: linear-gradient(45deg, var(--color-earth-brown), var(--color-dark-brown));
+  
+  /* Spacing e outros */
+  --border-radius: 12px;
+  --shadow-light: 0 4px 15px rgba(78, 44, 33, 0.1);
+  --shadow-medium: 0 8px 25px rgba(78, 44, 33, 0.15);
+  --shadow-heavy: 0 15px 35px rgba(78, 44, 33, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +47,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--color-text-primary);
   overflow-x: hidden;
 }
 
@@ -40,20 +74,20 @@ body {
 
 /* ===== HEADER ===== */
 header {
-  background: linear-gradient(135deg, #ff6b9d, #c44569);
-  color: white;
+  background: var(--bg-gradient-primary);
+  color: var(--color-text-light);
   padding: 1rem 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-medium);
   transition: all 0.3s ease;
 }
 
 header.scrolled {
   padding: 0.5rem 0;
-  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  background: var(--bg-gradient-primary);
   backdrop-filter: blur(10px);
 }
 
@@ -67,7 +101,7 @@ nav {
   font-size: 1.5rem;
   font-weight: 700;
   text-decoration: none;
-  color: white;
+  color: var(--color-text-light);
 }
 
 .nav-menu {
@@ -77,29 +111,29 @@ nav {
 }
 
 .nav-menu a {
-  color: white;
+  color: var(--color-text-light);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-menu a:hover {
-  color: #ffd700;
+  color: var(--color-cream);
 }
 
 .menu-toggle {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--color-text-light);
   font-size: 1.5rem;
   cursor: pointer;
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
-  background: linear-gradient(135deg, #ff6b9d, #c44569, #ffd700);
-  color: white;
+  background: var(--bg-gradient-primary);
+  color: var(--color-text-light);
   padding: 120px 0 80px;
   text-align: center;
   min-height: 100vh;
@@ -145,23 +179,23 @@ nav {
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(45deg, #ffd700, #ffed4e);
-  color: #333;
+  background: var(--bg-gradient-accent);
+  color: var(--color-text-light);
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  box-shadow: var(--shadow-medium);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
-  background: linear-gradient(45deg, #ffed4e, #ffd700);
+  box-shadow: var(--shadow-heavy);
+  background: linear-gradient(45deg, var(--color-dark-brown), var(--color-earth-brown));
 }
 
 /* ===== SECTIONS ===== */
@@ -174,7 +208,7 @@ section {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   text-align: center;
   margin-bottom: 4rem;
-  color: #2c2c2c;
+  color: var(--color-text-primary);
   position: relative;
   font-weight: 700;
   line-height: 1.2;
@@ -188,14 +222,14 @@ section {
   transform: translateX(-50%);
   width: 100px;
   height: 5px;
-  background: linear-gradient(45deg, #ff6b9d, #c44569);
+  background: var(--bg-gradient-primary);
   border-radius: 3px;
 }
 
 .section-subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: #666;
+  color: var(--color-text-secondary);
   max-width: 600px;
   margin: 0 auto 3rem;
   line-height: 1.6;
@@ -203,7 +237,7 @@ section {
 
 /* ===== WHAT YOU LEARN SECTION ===== */
 .what-you-learn {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+  background: var(--bg-gradient-secondary);
   position: relative;
   overflow: hidden;
 }
@@ -250,7 +284,7 @@ section {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(45deg, #ff6b9d, #c44569);
+  background: var(--bg-gradient-primary);
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }
@@ -261,13 +295,13 @@ section {
 
 .feature-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(255, 107, 157, 0.2);
-  border-color: rgba(255, 107, 157, 0.3);
+  box-shadow: 0 25px 50px rgba(200, 143, 122, 0.2);
+  border-color: rgba(200, 143, 122, 0.3);
 }
 
 .feature-icon {
   font-size: 3.5rem;
-  background: linear-gradient(45deg, #ff6b9d, #c44569);
+  background: var(--bg-gradient-primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -284,27 +318,27 @@ section {
 }
 
 .feature-card p {
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 /* Special hover effects for feature cards */
 .feature-card:nth-child(1):hover {
-  background: linear-gradient(135deg, #fff5f8 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--color-cream) 0%, #ffffff 100%);
 }
 
 .feature-card:nth-child(2):hover {
-  background: linear-gradient(135deg, #fff8fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, rgba(213, 196, 161, 0.3) 0%, #ffffff 100%);
 }
 
 .feature-card:nth-child(3):hover {
-  background: linear-gradient(135deg, #fff2f5 0%, #ffffff 100%);
+  background: linear-gradient(135deg, rgba(200, 143, 122, 0.2) 0%, #ffffff 100%);
 }
 
 /* ===== TESTIMONIALS ===== */
 .testimonials {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: var(--bg-gradient-secondary);
   position: relative;
   overflow: hidden;
 }
@@ -462,7 +496,7 @@ section {
 
 /* ===== PRICING ===== */
 .pricing {
-  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 25%, #ffb3c1 50%, #ffd1d9 75%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--color-rose-copper) 0%, rgba(200, 143, 122, 0.7) 25%, rgba(213, 196, 161, 0.5) 50%, rgba(213, 196, 161, 0.3) 75%, #ffffff 100%);
   position: relative;
   overflow: hidden;
 }
@@ -475,8 +509,8 @@ section {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(213, 196, 161, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(200, 143, 122, 0.2) 0%, transparent 50%);
 }
 
 .pricing-card {
@@ -484,12 +518,12 @@ section {
   border-radius: 25px;
   padding: 4rem 3rem;
   text-align: center;
-  box-shadow: 0 20px 60px rgba(255, 107, 157, 0.2);
+  box-shadow: 0 20px 60px rgba(200, 143, 122, 0.2);
   max-width: 450px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  border: 2px solid rgba(255, 107, 157, 0.1);
+  border: 2px solid rgba(200, 143, 122, 0.1);
   transition: all 0.4s ease;
 }
 
@@ -500,18 +534,18 @@ section {
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(45deg, #ff6b9d, #c44569, #ffd700);
+  background: var(--bg-gradient-primary);
 }
 
 .pricing-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 30px 80px rgba(255, 107, 157, 0.3);
-  border-color: rgba(255, 107, 157, 0.3);
+  box-shadow: 0 30px 80px rgba(200, 143, 122, 0.3);
+  border-color: rgba(200, 143, 122, 0.3);
 }
 
 .pricing-badge {
-  background: linear-gradient(45deg, #ff6b9d, #c44569);
-  color: white;
+  background: var(--bg-gradient-primary);
+  color: var(--color-text-light);
   padding: 0.5rem 1.5rem;
   border-radius: 25px;
   font-size: 0.9rem;
@@ -525,10 +559,10 @@ section {
 .price {
   font-size: 4rem;
   font-weight: 800;
-  color: #ff6b9d;
+  color: var(--color-rose-copper);
   margin: 1.5rem 0;
   line-height: 1;
-  background: linear-gradient(45deg, #ff6b9d, #c44569);
+  background: var(--bg-gradient-primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -540,7 +574,7 @@ section {
 }
 
 .price-subtitle {
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 2.5rem;
   font-size: 1.1rem;
   font-weight: 500;
