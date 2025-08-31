@@ -951,8 +951,8 @@ img[loading="lazy"] {
     <!-- Header -->
     <header id="header">
         <nav class="container">
-            <div class="logo">✨ BeautyMaster</div>
-            <ul class="nav-links">
+            <div class="logo">BeautyMaster</div>
+            <ul class="nav-menu">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#features">Módulos</a></li>
@@ -1502,10 +1502,13 @@ img[loading="lazy"] {
             });
         });
 
-        // Mobile menu toggle
+        // Mobile menu toggle sofisticado
         document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
         });
 
         // Parallax effect for hero section

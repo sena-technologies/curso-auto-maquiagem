@@ -59,16 +59,22 @@ body {
 
 /* Header - Critical */
 header {
-  background: var(--bg-gradient-primary);
+  background: linear-gradient(135deg, 
+    rgba(78, 44, 33, 0.95) 0%, 
+    rgba(139, 74, 46, 0.90) 50%, 
+    rgba(166, 94, 57, 0.85) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(213, 196, 161, 0.1);
   color: var(--color-text-light);
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: var(--shadow-medium);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(78, 44, 33, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav {
@@ -79,9 +85,9 @@ nav {
 
 .logo {
   font-size: 1.8rem;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
-  color: var(--color-text-light);
+  color: var(--color-cream);
   display: flex;
   align-items: center;
   gap: 0.5rem;
