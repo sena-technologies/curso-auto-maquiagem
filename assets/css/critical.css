@@ -149,9 +149,9 @@ nav {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(255, 107, 157, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(196, 69, 105, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(213, 196, 161, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(200, 143, 122, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(166, 94, 57, 0.1) 0%, transparent 50%);
   animation: float 20s infinite ease-in-out;
 }
 
@@ -235,8 +235,8 @@ nav {
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(255, 107, 157, 0.6);
-  background: linear-gradient(45deg, #ff8fab, #d55a7f);
+  box-shadow: 0 12px 35px rgba(200, 143, 122, 0.6);
+  background: linear-gradient(45deg, var(--color-earth-brown), var(--color-dark-brown));
 }
 
 /* Responsive */
@@ -299,8 +299,8 @@ nav {
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(45deg, #ffd700, #ffed4e);
-  color: #333;
+  background: linear-gradient(45deg, var(--color-light-brown), var(--color-cream));
+  color: var(--color-deep-brown);
   padding: 15px 40px;
   border-radius: 50px;
   text-decoration: none;
@@ -310,7 +310,7 @@ nav {
 
 /* Breadcrumb */
 .breadcrumb {
-  background: #f8f9fa;
+  background: var(--color-cream);
   padding: 0.5rem 0;
   font-size: 0.9rem;
 }
