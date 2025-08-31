@@ -170,7 +170,7 @@ nav {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ff6b9d, #c44569, #ff6b9d);
+  background: var(--bg-gradient-primary);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -250,7 +250,7 @@ nav {
     top: 100%;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    background: var(--bg-gradient-primary);
     flex-direction: column;
     padding: 1rem 0;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -327,6 +327,6 @@ nav {
 }
 
 .breadcrumb a {
-  color: #ff6b9d;
+  color: var(--color-rose-copper);
   text-decoration: none;
 }
