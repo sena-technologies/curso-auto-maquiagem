@@ -1,18 +1,18 @@
 /* Critical CSS - Above the fold styles */
 
-/* ===== CSS VARIABLES - NOVA PALETA DE CORES ===== */
+/* ===== CSS VARIABLES - PALETA TERROSA PURA ===== */
 :root {
-  /* Paleta principal */
+  /* Paleta principal - apenas tons terrosos */
   --color-cream: #d5c4a1;        /* Bege claro/creme */
-  --color-rose-copper: #c88f7a;  /* Rosa acobreado */
+  --color-light-brown: #c88f7a;  /* Marrom claro acobreado */
   --color-earth-brown: #a65e39;  /* Marrom terroso */
   --color-dark-brown: #8b4a2e;   /* Marrom escuro */
   --color-deep-brown: #4e2c21;   /* Marrom muito escuro */
   
-  /* Cores derivadas para gradientes */
-  --color-primary: var(--color-rose-copper);
-  --color-secondary: var(--color-earth-brown);
-  --color-accent: var(--color-cream);
+  /* Cores funcionais - sem rosa */
+  --color-primary: var(--color-earth-brown);
+  --color-secondary: var(--color-dark-brown);
+  --color-accent: var(--color-light-brown);
   --color-dark: var(--color-deep-brown);
   --color-medium: var(--color-dark-brown);
   
@@ -21,10 +21,11 @@
   --color-text-secondary: var(--color-dark-brown);
   --color-text-light: var(--color-cream);
   
-  /* Backgrounds */
-  --bg-gradient-primary: linear-gradient(135deg, var(--color-rose-copper), var(--color-earth-brown));
-  --bg-gradient-secondary: linear-gradient(135deg, var(--color-cream), var(--color-rose-copper));
-  --bg-gradient-accent: linear-gradient(45deg, var(--color-earth-brown), var(--color-dark-brown));
+  /* Gradientes terrosos puros */
+  --bg-gradient-primary: linear-gradient(135deg, var(--color-earth-brown), var(--color-dark-brown));
+  --bg-gradient-secondary: linear-gradient(135deg, var(--color-cream), var(--color-light-brown));
+  --bg-gradient-accent: linear-gradient(45deg, var(--color-light-brown), var(--color-earth-brown));
+  --bg-gradient-footer: linear-gradient(135deg, var(--color-deep-brown), var(--color-dark-brown));
   
   /* Shadows */
   --shadow-light: 0 4px 15px rgba(78, 44, 33, 0.1);
@@ -327,6 +328,6 @@ nav {
 }
 
 .breadcrumb a {
-  color: var(--color-rose-copper);
+  color: var(--color-light-brown);
   text-decoration: none;
 }
