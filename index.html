@@ -407,27 +407,208 @@
             background-color: #fff;
         }
 
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        .testimonials-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
             gap: 2rem;
         }
 
         .testimonial-card {
-            background-color: #f9f9f9;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            background: linear-gradient(145deg, #ffffff, #f8f8f8);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            min-width: 350px;
+            flex-shrink: 0;
+            border: 1px solid rgba(213, 196, 161, 0.2);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .testimonial-rating i {
+            color: var(--color-light-brown);
+            font-size: 1.2rem;
         }
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #444;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--color-light-brown);
+            position: absolute;
+            top: -10px;
+            left: -15px;
+            opacity: 0.3;
+        }
+
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--color-light-brown);
+            position: absolute;
+            bottom: -20px;
+            right: -15px;
+            opacity: 0.3;
         }
 
         .testimonial-author {
-            font-weight: 600;
-            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-light-brown), var(--color-earth-brown));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: 3px solid white;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-info strong {
+            display: block;
+            color: var(--color-dark-brown);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Carousel Controls */
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            padding: 0 1rem;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-light-brown);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .carousel-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(213, 196, 161, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--color-light-brown);
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: var(--color-earth-brown);
+        }
+
+        /* Responsive Design for Carousel */
+        @media (max-width: 768px) {
+            .testimonial-card {
+                min-width: 280px;
+                padding: 2rem 1.5rem;
+            }
+            
+            .carousel-controls {
+                padding: 0 0.5rem;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .carousel-btn i {
+                font-size: 1rem;
+            }
         }
 
         /* Pricing Section Styles */
@@ -1007,7 +1188,7 @@ img[loading="lazy"] {
                     <p>Seja para o dia a dia ou para ocasiões especiais, você terá todas as ferramentas necessárias para realçar sua beleza natural.</p>
                 </div>
                 <div class="about-image fade-in">
-                    <img src="assets/images/capa-1.webp" alt="Mulher aplicando maquiagem profissional - Curso BeautyMaster" loading="lazy" width="400" height="400">
+                    <img src="assets/images/capa-2.webp" alt="Mulher aplicando maquiagem profissional - Curso BeautyMaster" loading="lazy" width="400" height="400">
                 </div>
             </div>
         </div>
@@ -1100,18 +1281,18 @@ img[loading="lazy"] {
             <div class="pricing-card fade-in">
                 <div class="pricing-badge">🔥 OFERTA ESPECIAL</div>
                 <div class="price">
-                    <span class="price-currency">R$</span>197
+                    <span class="price-currency">R$</span>49.90
                 </div>
-                <div class="price-subtitle">Pagamento único • Acesso vitalício</div>
+                <div class="price-subtitle">• Pagamento único • </div>
                 <h3>Curso Completo de Auto Maquiagem</h3>
                 <ul class="price-features">
                     <li>Mais de 50 aulas em vídeo HD</li>
-                    <li>Acesso vitalício ao conteúdo</li>
+                    <!--<li>Acesso vitalício ao conteúdo</li>-->
                     <li>Certificado de conclusão</li>
                     <li>Grupo exclusivo no WhatsApp</li>
                     <li>Suporte direto com as professoras</li>
-                    <li>Atualizações gratuitas</li>
-                    <li>Garantia de 30 dias</li>
+                    <!--<li>Atualizações gratuitas</li>-->
+                    <li>Garantia de incondicional de 7 dias</li>
                     <li>Material complementar em PDF</li>
                     <li>Lives mensais exclusivas</li>
                 </ul>
@@ -1120,7 +1301,7 @@ img[loading="lazy"] {
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Testimonials Carousel -->
     <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
         <div class="container">
             <h2 class="section-title fade-in" id="testimonials-title">O Que Nossas Alunas Falam</h2>
@@ -1128,65 +1309,155 @@ img[loading="lazy"] {
                 Mais de 2.000 mulheres já transformaram sua autoestima com nosso curso
             </p>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-in animate-slide-in-left">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <blockquote class="testimonial-text">
-                        "Nunca imaginei que poderia fazer uma maquiagem tão profissional em casa. O curso me ensinou técnicas que nem eu sabia que existiam. Hoje me sinto muito mais confiante!"
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <img src="/placeholder-user.jpg" alt="Maria Silva" loading="lazy" width="60" height="60">
-                        <div class="author-info">
-                            <strong>Maria Silva</strong>
-                            <span>São Paulo, SP</span>
+            <div class="testimonials-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="testimonialsTrack">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="testimonial-text">
+                                "Nunca imaginei que poderia fazer uma maquiagem tão profissional em casa. O curso me ensinou técnicas que nem eu sabia que existiam. Hoje me sinto muito mais confiante!"
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MS</div>
+                                <div class="author-info">
+                                    <strong>Maria Silva</strong>
+                                    <span>São Paulo, SP</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="testimonial-text">
+                                "Já economizei mais de R$ 500 em maquiadores! O investimento no curso se pagou rapidinho. Além disso, estou fazendo a maquiagem das minhas amigas também."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AC</div>
+                                <div class="author-info">
+                                    <strong>Ana Costa</strong>
+                                    <span>Rio de Janeiro, RJ</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="testimonial-text">
+                                "Minha autoestima mudou completamente! Antes eu tinha vergonha de sair sem maquiagem, agora sei realçar minha beleza natural de forma profissional."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">CO</div>
+                                <div class="author-info">
+                                    <strong>Carolina Oliveira</strong>
+                                    <span>Belo Horizonte, MG</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 4 - NOVO -->
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="testimonial-text">
+                                "Como mãe de três filhos, nunca tinha tempo para salão. Agora consigo me arrumar rapidamente em casa e fico linda para qualquer ocasião. Método super prático!"
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">JS</div>
+                                <div class="author-info">
+                                    <strong>Juliana Santos</strong>
+                                    <span>Brasília, DF</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 5 - NOVO -->
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="testimonial-text">
+                                "Trabalho em vendas e a aparência é muito importante. Depois do curso, minha performance melhorou e até recebi elogios dos clientes. Vale cada centavo!"
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">PR</div>
+                                <div class="author-info">
+                                    <strong>Patricia Ribeiro</strong>
+                                    <span>Porto Alegre, RS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 6 - NOVO -->
+                        <div class="testimonial-card fade-in">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote class="testimonial-text">
+                                "Aos 50 anos achei que era tarde para aprender. Que engano! As aulas são muito didáticas e aprendi a valorizar minha beleza madura. Me sinto renovada!"
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">LF</div>
+                                <div class="author-info">
+                                    <strong>Lucia Fernandes</strong>
+                                    <span>Salvador, BA</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card fade-in animate-slide-in-bottom">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <blockquote class="testimonial-text">
-                        "Já economizei mais de R$ 500 em maquiadores! O investimento no curso se pagou rapidinho. Além disso, estou fazendo a maquiagem das minhas amigas também."
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <img src="/placeholder-user.jpg" alt="Ana Costa" loading="lazy" width="60" height="60">
-                        <div class="author-info">
-                            <strong>Ana Costa</strong>
-                            <span>Rio de Janeiro, RJ</span>
-                        </div>
-                    </div>
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)" aria-label="Depoimento anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" onclick="moveCarousel(1)" aria-label="Próximo depoimento">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
                 
-                <div class="testimonial-card fade-in animate-slide-in-right">
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <blockquote class="testimonial-text">
-                        "Minha autoestima mudou completamente! Antes eu tinha vergonha de sair sem maquiagem, agora sei realçar minha beleza natural de forma profissional."
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <img src="/placeholder-user.jpg" alt="Carolina Oliveira" loading="lazy" width="60" height="60">
-                        <div class="author-info">
-                            <strong>Carolina Oliveira</strong>
-                            <span>Belo Horizonte, MG</span>
-                        </div>
-                    </div>
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" onclick="goToSlide(0)" aria-label="Ir para depoimento 1"></button>
+                    <button class="indicator" onclick="goToSlide(1)" aria-label="Ir para depoimento 2"></button>
+                    <button class="indicator" onclick="goToSlide(2)" aria-label="Ir para depoimento 3"></button>
+                    <button class="indicator" onclick="goToSlide(3)" aria-label="Ir para depoimento 4"></button>
+                    <button class="indicator" onclick="goToSlide(4)" aria-label="Ir para depoimento 5"></button>
+                    <button class="indicator" onclick="goToSlide(5)" aria-label="Ir para depoimento 6"></button>
                 </div>
             </div>
         </div>
@@ -1731,6 +2002,120 @@ img[loading="lazy"] {
     
     <!-- SEO Analytics -->
     <script src="seo-analytics.js"></script>
+    
+    <!-- Testimonials Carousel Script -->
+    <script>
+        // ===== TESTIMONIALS CAROUSEL =====
+        let currentSlide = 0;
+        const totalSlides = 6;
+        let track, indicators, autoPlayInterval;
+
+        function initCarousel() {
+            track = document.getElementById('testimonialsTrack');
+            indicators = document.querySelectorAll('.indicator');
+            
+            if (!track || !indicators.length) return;
+            
+            updateCarousel();
+            startAutoPlay();
+        }
+
+        function updateCarousel() {
+            if (!track || !track.children.length) return;
+            
+            const slideWidth = track.children[0].offsetWidth + 32; // width + gap
+            const offset = -currentSlide * slideWidth;
+            track.style.transform = `translateX(${offset}px)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => moveCarousel(1), 5000);
+            
+            // Pause auto-play on hover
+            const carouselContainer = document.querySelector('.testimonials-carousel');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', () => {
+                    clearInterval(autoPlayInterval);
+                });
+
+                carouselContainer.addEventListener('mouseleave', () => {
+                    autoPlayInterval = setInterval(() => moveCarousel(1), 5000);
+                });
+            }
+        }
+
+        // Touch/swipe support for mobile
+        function initTouchSupport() {
+            if (!track) return;
+            
+            let startX = 0;
+            let isDragging = false;
+
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            track.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            });
+
+            track.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > 50) { // Minimum swipe distance
+                    if (diff > 0) {
+                        moveCarousel(1); // Swipe left - next slide
+                    } else {
+                        moveCarousel(-1); // Swipe right - previous slide
+                    }
+                }
+                
+                isDragging = false;
+            });
+        }
+
+        // Initialize carousel when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                initCarousel();
+                initTouchSupport();
+            }, 100);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (track) {
+                updateCarousel();
+            }
+        });
+    </script>
     
     <!-- Performance Monitoring -->
     <script>
