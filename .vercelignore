@@ -1,0 +1,9 @@
+# Vercel ignore file
+node_modules/
+.git/
+.vscode/
+*.log
+.DS_Store
+README.md
+package.json
+package-lock.json
